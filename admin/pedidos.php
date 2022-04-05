@@ -64,7 +64,7 @@
                                     <td><?php echo $dato->celular;?></td>
                                     <td><?php echo $dato->direccion;?></td>
                                     <td><?php echo $dato->orden;?></td>
-                                    <td class="text-center"><a onclick="return confirm('¿El pedido fue entregado?')" class="text-warning" href="eliminarPeidos.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-truck" alt="asd"></i></a></td>
+                                    <td class="text-center"><a onclick="return confirm('¿El pedido fue entregado?')" class="text-warning" href="eliminarPedidos.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-truck" alt="asd"></i></a></td>
                                 </tr>
 
                                 <?php
