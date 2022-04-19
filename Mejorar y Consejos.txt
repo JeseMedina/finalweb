@@ -1,1 +1,3 @@
-asdasd
+-Los registros casi nunca deben ser borrados, simplemente se deben cambiar de estado y almacenados para su uso futuro.
+-En admin/platos el input precio debe ser type: number.
+-Tengo que hacer un login usando SESSION. para que el usuario recurrente no deba poner sus datos cada vez que va a registrarse.
