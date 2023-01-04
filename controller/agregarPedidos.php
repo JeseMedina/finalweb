@@ -3,7 +3,7 @@
         header('Location: ../index.php');
     }
 
-    include_once '../model/conexion.php';
+    include_once '../config/conexion.php';
     $nombre = $_POST['txtNombre'];
     $celular = $_POST['txtCelular'];
     $direccion = $_POST['txtDireccion'];

@@ -113,7 +113,6 @@ header .icons i:hover,
 header .icons a:hover{
     color:#fff;
     background: var(--secondary);
-    transform: rotate(360deg);
 }
 
 header .icons #menu-bars{

@@ -3,7 +3,7 @@
         header ('Location: platos.php?mensaje=error');
     }
 
-    include '../model/conexion.php';
+    include '../config/conexion.php';
     $codigo = $_POST['codigo'];
     $nombre = $_POST['txtNombre'];
     $precio = $_POST['txtPrecio'];

@@ -3,7 +3,7 @@
         header('Location: platos.php?mensaje=falta');
     }
 
-    include_once '../model/conexion.php';
+    include_once '../config/conexion.php';
     $nombre = $_POST["txtNombre"];
     $precio = $_POST["txtPrecio"];
     $imagen = $_POST["txtImagen"];

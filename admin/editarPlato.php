@@ -6,7 +6,7 @@ if (!isset($_GET['codigo'])) {
     exit();
 }
 
-include_once '../model/conexion.php';
+include_once '../config/conexion.php';
 $codigo = $_GET['codigo'];
 
 $sentencia = $bd->prepare("select * from platos where codigo = ?;");
@@ -20,7 +20,7 @@ $platos = $sentencia->fetch(PDO::FETCH_OBJ);
                 <div class="card-header">
                     Editar Platos:
                 </div>
-                <form action="editarProceso.php" class="p-4" method="POST">
+                <form action="../controller/editarProceso.php" class="p-4" method="POST">
                     <div class="mb-3">
                         <label for="" class="form-label">Nombre:</label>
                         <input type="text" class="form-control" name="txtNombre" required value="<?php echo $platos->nombre; ?>">

@@ -10,6 +10,6 @@
 
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="admin/pedidos.php" class="fas fa-sign-in-alt"></a>
+        <a href="login.php" class="fas fa-sign-in-alt"></a>
     </div>
 </header>

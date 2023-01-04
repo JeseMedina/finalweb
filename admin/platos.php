@@ -1,6 +1,6 @@
 <?php include '../templates/headerAdmin.php'; ?>
 <?php
-    include_once "../model/conexion.php"; 
+    include_once "../config/conexion.php";
     $sentencia = $bd -> query("select * from platos");
     $platos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -100,8 +100,8 @@
                                     <td><?php echo $dato->nombre;?></td>
                                     <td>$<?php echo $dato->precio;?></td>
                                     <td><img src="<?php echo $dato->imagen ?>" width="60px" height="40px"></td>
-                                    <td><a class="text-success" href="editar.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-pencil-square"></i></a></td>
-                                    <td><a onclick="return confirm('Estas seguro de eliminar?')" class="text-danger" href="eliminar.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-trash"></i></a></td>
+                                    <td><a class="text-success" href="editarPlato.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a onclick="return confirm('Estas seguro de eliminar?')" class="text-danger" href="../controller/eliminar.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-trash"></i></a></td>
                                 </tr>
 
                                 <?php
@@ -117,7 +117,7 @@
                     <div class="card-header">
                         Ingresar Datos:
                     </div>
-                    <form action="registrar.php" class="p-4" method="POST">
+                    <form action="../controller/registrar.php" class="p-4" method="POST">
                         <div class="mb-3">
                             <label for="" class="form-label">Nombre:</label>
                             <input type="text" class="form-control" name="txtNombre" autofocus required>

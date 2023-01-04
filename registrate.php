@@ -11,7 +11,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet"
         href="css/login.css">
-    <title>Login</title>
+    <title>Registrate</title>
 </head>
 
 <body>
@@ -25,18 +25,17 @@
                     <p class="logo">HotFood</p>
                 </div>
 
-                <h2 class="fw-bold text-center py-4 title">Bienvenido</h2>
+                <h2 class="fw-bold text-center py-4 title">Registrate</h2>
 
                 <!-- login -->
 
                 <form action="#">
                     <div class="mb-4">
                         <label for="user"
-                            class="form-label">Usuario</label>
+                            class="form-label">Correo Electronico</label>
                         <input type="text"
                             class="form-control"
                             name="user">
-
                     </div>
                     <div class="mb-4">
                         <label for="password"
@@ -45,15 +44,39 @@
                             class="form-control"
                             name="password">
                     </div>
+                    <div class="mb-4">
+                        <label for="password2"
+                            class="form-label">Repita la Contraseña</label>
+                        <input type="password"
+                            class="form-control"
+                            name="password2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="name"
+                            class="form-label">Nombre y Apellido</label>
+                        <input type="text"
+                            class="form-control"
+                            name="name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="phone"
+                            class="form-label">Celular</label>
+                        <input type="number"
+                            class="form-control"
+                            name="phone">
+                    </div>
+                    <div class="mb-4">
+                        <label for="adress"
+                            class="form-label">Dirección</label>
+                        <input type="text"
+                            class="form-control"
+                            name="adress">
+                    </div>
 
 
                     <div class="d-grid">
                         <button type="submit"
-                            class="btn">Iniciar Sesión</button>
-                    </div>
-
-                    <div class="my-3 text-center">
-                        <span>¿No tienes cuenta? <a href="registrate.php">Registrate</a></span> <br>
+                            class="btn">Registrarse</button>
                     </div>
                 </form>
             </div>

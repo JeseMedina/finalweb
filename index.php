@@ -1,5 +1,5 @@
 <?php
-    include_once "model/conexion.php"; 
+    include_once "config/conexion.php"; 
     $sentencia = $bd -> query("select * from platos");
     $platos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>

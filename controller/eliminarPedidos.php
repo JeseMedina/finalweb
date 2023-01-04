@@ -3,7 +3,7 @@
         header ('Location: pedidos.php?mensaje=error');
     }
 
-    include '../model/conexion.php';
+    include '../config/conexion.php';
     $codigo = $_GET['codigo'];
     $sentencia = $bd->prepare("DELETE FROM pedidos WHERE codigo = ?;");
     $resultado = $sentencia->execute([$codigo]);

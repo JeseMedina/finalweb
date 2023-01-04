@@ -1,6 +1,6 @@
 <?php include '../templates/headerAdmin.php'; ?>
 <?php
-    include_once "../model/conexion.php"; 
+    include_once "../config/conexion.php"; 
     $sentencia = $bd -> query("select * from pedidos");
     $pedidos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -64,7 +64,7 @@
                                     <td><?php echo $dato->celular;?></td>
                                     <td><?php echo $dato->direccion;?></td>
                                     <td><?php echo $dato->orden;?></td>
-                                    <td class="text-center"><a onclick="return confirm('¿El pedido fue entregado?')" class="text-warning" href="eliminarPedidos.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-truck" alt="asd"></i></a></td>
+                                    <td class="text-center"><a onclick="return confirm('¿El pedido fue entregado?')" class="text-warning" href="../controller/eliminarPedidos.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-truck" alt="asd"></i></a></td>
                                 </tr>
 
                                 <?php

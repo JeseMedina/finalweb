@@ -3,7 +3,7 @@
     <h3 class="sub-heading"> Ordena ahora</h3>
     <h1 class="heading"> Facil y rapido</h1>
 
-    <form action="admin/agregarPedidos.php" method="POST">
+    <form action="controller/agregarPedidos.php" method="POST">
         <div class="inputBox">
             <div class="input">
                 <span>Nombre</span>
