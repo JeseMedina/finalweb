@@ -41,7 +41,22 @@ Class Pedido{
     }
 
     public function entregado($idpedido){
-        $sql="UPDATE pedido SET estado=5 WHERE idpedido='$idpedido'";
+        $sql="UPDATE pedido SET estado=4 WHERE idpedido='$idpedido'";
+        return ejecutarConsulta($sql);
+    }
+
+    public function listar(){
+        $sql="SELECT p.idpedido,p.fecha,p.hora,p.total,u.nombre as usuario FROM pedido p INNER JOIN usuario u ON p.idusuario = u.idusuario OREDER BY p.idpedido desc";
+        return ejecutarConsulta($sql); 
+    }
+
+    public function mostrar($idpedido){
+        $sql="SELECT p.idpedido,p.fecha,p.hora,p.total,u.nombre as usuario FROM pedido p INNER JOIN usuario u ON p.idusuario = u.idusuario WHERE p.idpedido = '$idpedido'";
+        return ejecutarConsultaSimpleFila($sql);
+    }
+
+    public function listarDetalle($idpedido){
+        $sql="SELECT pp.idplato, p.nombre,pp.cantidad, pp.precio,(pp.cantidad * pp.precio) as subtotal FROM pedido_plato pp INNER JOIN plato p ON pp.idplato = p.idplato WHERE pp.idpedido = '$idpedido'";
         return ejecutarConsulta($sql);
     }
 }

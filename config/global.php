@@ -1,7 +1,7 @@
 <?php 
 define("DB_HOST","localhost");
 
-define("DB_NAME","crud");
+define("DB_NAME","hotfood");
 
 define("DB_USERNAME","root");
 

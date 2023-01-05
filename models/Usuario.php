@@ -8,10 +8,10 @@ Class Usuario{
  
     }
 
-    public function insertar($usuario,$contrasena,$nombre,$celular,$direccion)
+    public function insertar($user,$contrasena,$nombre,$celular,$direccion)
     {
-        $sql="INSERT INTO usuario (usuario,contrasena,nombre,celular,direccion,tipo)
-        VALUES ('$usuario','$contrasena','$nombre','$celular','$direccion','cliente')";
+        $sql="INSERT INTO usuario (user,contrasena,nombre,celular,direccion,tipo)
+        VALUES ('$user','$contrasena','$nombre','$celular','$direccion','cliente')";
         return ejecutarConsulta($sql);
     }
 
@@ -35,6 +35,19 @@ Class Usuario{
         return ejecutarConsulta($sql);
     }
 
+    public function verificar($user, $contrasena){
+        $sql="SELECT * FROM usuario WHERE user='$user' AND contrasena='$contrasena'";
+		return ejecutarConsulta($sql);
+    }
 
+    public function verificarOlvido($user,$celular){
+        $sql="SELECT * FROM usuario WHERE user='$user' AND celular='$celular'";
+		return ejecutarConsulta($sql);
+    }
+
+    public function cambiarContrasena($user, $contrasena){
+        $sql="UPDATE usuario SET contrasena='$contrasena' WHERE user='$user'";
+			return ejecutarConsulta($sql);
+    }
 }
 ?>

@@ -11,7 +11,7 @@ Class Favorito{
     }
 
     public function listar($idusuario){
-        $sql="SELECT * FROM favorito WHERE idusuario='$idusuario'";
+        $sql="SELECT p.nombre,p.precio,p.imagen FROM favorito f INNER JOIN plato p ON f.idplato = p.idplato WHERE f.idusuario='$idusuario' AND p.estado = 1";
         return ejecutarConsulta($sql);   
     }
 

@@ -4,13 +4,13 @@ require "../cofig/conexion.php";
 Class Plato{
     public function __contruct(){}
 
-    public function insertar($nombre,$precio,$imagen){
+    public function insertar($nombre,$descripcion,$precio,$imagen){
         $sql="INSERT INTO plato (nombre,precio,imagen,estado)
         VALUES ('$nombre','$precio','$imagen','1')";
         return ejecutarConsulta($sql);
     }
 
-    public function editar($idplato,$nombre,$precio,$imagen){
+    public function editar($idplato,$descripcion,$nombre,$precio,$imagen){
         $sql="UPDATE plato SET nombre='$nombre',precio='$precio',imagen='$imagen' WHERE idplato='$idplato'";
         return ejecutarConsulta($sql);
     }
