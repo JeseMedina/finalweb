@@ -6,5 +6,7 @@
 -El usuario podra guardar sus platos favoritos.
 -Hacer MVC
 -Agregar JS
--menu activate no funca
 -tamaño de letra
+-dejar solamente index en raiz
+
+buscar los todo:

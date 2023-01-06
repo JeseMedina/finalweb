@@ -63,20 +63,27 @@ switch($_GET["op"]) {
         $data = Array();
         
         while ($reg = $rspta->fetch_object()){
+            // $data[] = array(
+            //     "0"=>'<button data-togle="tooltip" title"Agregar Plato" class="btn btn-warning" onclick="agregarDetalle('.$reg->idplato.',\''.$reg->nombre.'\',\''.$reg->precio.'\')"<span class="fa fa-plus"></span></button>',
+            //     "1"=>$reg->nombre,
+            //     "2"=>$reg->descripcion,
+            //     "3"=>$reg->precio,
+            //     "4"=>$reg->imagen,
+            //     "5"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
+            // );
             $data[] = array(
-                "0"=>'<button data-togle="tooltip" title"Agregar Plato" class="btn btn-warning" onclick="agregarDetalle('.$reg->idplato.',\''.$reg->nombre.'\',\''.$reg->precio.'\')"<span class="fa fa-plus"></span></button>',
-                "1"=>$reg->nombre,
-                "2"=>$reg->descripcion,
-                "3"=>$reg->precio,
-                "4"=>$reg->imagen,
-                "5"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
+                'idplato'=> $reg->idplato,
+                'nombre'=>$reg->nombre,
+                'descripcion'=>$reg->descripcion,
+                'precio'=>$reg->precio,
+                'imagen'=>$reg->imagen
             );
         }
         $results = array(
             "sEcho"=>1,
             "iTotalRecords"=>count($data),
             "iTotalDisplayRecords"=>count($data),
-            "aaData"=>$data);
+            "results"=>$data);
         echo json_encode($results);
     break;
 }

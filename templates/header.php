@@ -10,6 +10,9 @@
 
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="login.php" class="fas fa-sign-in-alt"></a>
+        <!-- 
+            //TODO: si la sesion esta abierta cambiar a cerrar sesión 
+        -->
+        <a href="login.html" class="fas fa-sign-in-alt"></a>
     </div>
 </header>

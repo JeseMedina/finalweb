@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../models/Usuario.php";
 
 $usuario = new Usuario();
@@ -75,7 +76,8 @@ switch($_GET["op"]) {
 
     case 'verificar':
         $contrasenahash=hash("SHA256",$contrasena);
-        $rspta=$usuario->verificar($user,$contrasenahash);
+        // $rspta=$usuario->verificar($user,$contrasenahash);
+        $rspta=$usuario->verificar($user,$contrasena);
         $fetch=$rspta->fetch_object();
         if (isset($fetch)) {
             $_SESSION['idusuario']=$fetch->idusuario;

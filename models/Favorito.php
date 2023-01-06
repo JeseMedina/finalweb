@@ -1,5 +1,5 @@
 <?php
-require "../cofig/conexion.php";
+require "../config/conexion.php";
 
 Class Favorito{
     public function __contruct(){}
