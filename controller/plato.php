@@ -42,12 +42,15 @@ switch($_GET["op"]) {
         
         while ($reg = $rspta->fetch_object()){
             $data[] = array(
-                "0"=>($reg->estado)?'<button data-toggle="tooltip" title="Actualizar Plato" class= btn btn-warning" onclick="mostrar('.$reg->idplato.')"><i class="fa fa-pencil"><i/></button>'.'<button data-toggle="tooltip" title="Desactivar Plato" class="btn btn-danger" onclick="desactivar('.$reg->idplato.')"><i class=fa fa-close"></i></button>':'<button data-toggle="tooltip" title="Activar Plato" class="btn btn-primary" onclick="activar('.$reg->idplato.')"><i class="fa fa-check"></i></button>',
-                "1"=>$reg->nombre,
-                "2"=>$reg->descripcion,
-                "3"=>$reg->precio,
-                "4"=>$reg->imagen,
-                "5"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
+                "0"=>$reg->nombre,
+                "1"=>$reg->descripcion,
+                "2"=>$reg->precio,
+                "3"=>'<img src="'.$reg->imagen.'" width="50px">',
+                "4"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>',
+                "5"=>($reg->estado)?
+                '<button data-toggle="tooltip" title="Actualizar Plato" class="btn btn-warning" onclick="mostrar('.$reg->idplato.')"><i class="fa fa-pencil"><i/></button>'
+                .'<button data-toggle="tooltip" title="Desactivar Plato" class="btn btn-danger" onclick="desactivar('.$reg->idplato.')"><i class="fa fa-close"></i></button>'
+                :'<button data-toggle="tooltip" title="Activar Plato" class="btn btn-primary" onclick="activar('.$reg->idplato.')"><i class="fa fa-check"></i></button>',
             );
         }
         $results = array(
@@ -63,14 +66,6 @@ switch($_GET["op"]) {
         $data = Array();
         
         while ($reg = $rspta->fetch_object()){
-            // $data[] = array(
-            //     "0"=>'<button data-togle="tooltip" title"Agregar Plato" class="btn btn-warning" onclick="agregarDetalle('.$reg->idplato.',\''.$reg->nombre.'\',\''.$reg->precio.'\')"<span class="fa fa-plus"></span></button>',
-            //     "1"=>$reg->nombre,
-            //     "2"=>$reg->descripcion,
-            //     "3"=>$reg->precio,
-            //     "4"=>$reg->imagen,
-            //     "5"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
-            // );
             $data[] = array(
                 'idplato'=> $reg->idplato,
                 'nombre'=>$reg->nombre,

@@ -75,17 +75,22 @@ switch($_GET["op"]) {
     break;
 
     case 'verificar':
-        $contrasenahash=hash("SHA256",$contrasena);
+        echo json_encode($_POST['user'],$_POST['contrasena']);
+        
+        
+        
+        // $contrasenahash=hash("SHA256",$contrasena);
         // $rspta=$usuario->verificar($user,$contrasenahash);
-        $rspta=$usuario->verificar($user,$contrasena);
-        $fetch=$rspta->fetch_object();
-        if (isset($fetch)) {
-            $_SESSION['idusuario']=$fetch->idusuario;
-            $_SESSION['nombre']=$fetch->nombre;
-            $_SESSION['user']=$fetch->user;
-            $_SESSION['tipo']=$fetch->tipo;
-        }
-        echo json_encode($fetch);
+        // $rspta=$usuario->verificar($usera,$contrasenaa);
+        
+        // $fetch=$rspta->fetch_object();
+        // if (isset($fetch)) {
+        //     $_SESSION['idusuario']=$fetch->idusuario;
+        //     $_SESSION['nombre']=$fetch->nombre;
+        //     $_SESSION['user']=$fetch->user;
+        //     $_SESSION['tipo']=$fetch->tipo;
+        // }
+        // echo json_encode($fetch);
 
     break;
 

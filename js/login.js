@@ -1,16 +1,17 @@
-$("#frmAcceso").on('submit',function(e){
+$("#frmAcceso").on('submit', function(e) {
 
     e.preventDefault();
-    user = $("#user").val();
-    contrasena = $("#contrasena").val();
+    let user = $("#user").val();
+    let contrasena = $("#contrasena").val();
 
     $.post("../controller/usuario.php?op=verificar",
-    {"user":user,"contrasena":contrasena},
-    function(data){
-        if(data != "null"){
-            $(location).attr("href", "index.php");
-        }else{
-            console.log("Usuario y/o Contraseña incorrectos");
+        { 'user': user, 'contrasena': contrasena },
+        function (data) {
+            if (data != "null") {
+                $(location).attr("href", "index.php");
+            } else {
+                console.log("Usuario y/o Contraseña incorrectos");
+            }
         }
-    });
+    );
 });

@@ -1,12 +1,16 @@
--Los registros casi nunca deben ser borrados, simplemente se deben cambiar de estado y almacenados para su uso futuro.
 -En admin/platos el input precio debe ser type: number.
--En admin/pedidos se deberia almacenar la fecha y hora en que fue realizado el pedido ¿y la entrega?
 -login usando SESSION. para que el usuario recurrente no deba poner sus datos cada vez que va a registrarse.
 -Dar mas informacion cuando se comete un error.
 -El usuario podra guardar sus platos favoritos.
--Hacer MVC
--Agregar JS
--tamaño de letra
--dejar solamente index en raiz
+-Tamaño de letra
+-Dejar solamente index en raiz
 
 buscar los todo:
+
+haciendo:
+-Hacer MVC
+-Agregar JS
+
+hecho:
+-Los registros casi nunca deben ser borrados, simplemente se deben cambiar de estado y almacenados para su uso futuro.
+-En admin/pedidos se deberia almacenar la fecha y hora en que fue realizado el pedido ¿y la entrega?

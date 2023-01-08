@@ -37,7 +37,8 @@ Class Usuario{
 
     public function verificar($user, $contrasena){
         $sql="SELECT * FROM usuario WHERE user='$user' AND contrasena='$contrasena'";
-		return ejecutarConsulta($sql);
+        return($sql);
+		// return ejecutarConsulta($sql);
     }
 
     public function verificarOlvido($user,$celular){
