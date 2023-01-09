@@ -4,12 +4,15 @@
         <div class="col-md-12"
             id="seccionListado">
 
-            <div class="d-flex justify-content-end">
-                <button class="btn btn-success">Nuevo</button>
+            <div class="d-flex justify-content-between">
+                <h3 class="">Platos</h3>
+                <button class="btn btn-success"
+                    id="btnNuevo"
+                    onclick="mostrarForm(true)">Nuevo</button>
             </div>
 
-            <div class="table-responsive mt-3">
-                <table class="table table-responsive align-middle"
+            <div class="table-responsive-xl mt-3">
+                <table class="table table-striped table-borderless align-middle"
                     id="platosTable">
                     <thead>
                         <tr>
@@ -27,8 +30,8 @@
             </div>
         </div>
         <div class="col-md-6"
-            id="seccionNuevo">
-            <h3>Nuevo Plato</h3>
+            id="seccionFormulario">
+            <h3>Plato</h3>
             <div class="card">
                 <form action="../controller/registrar.php"
                     class="p-4"
@@ -37,9 +40,13 @@
                     <div class="mb-3">
                         <label for=""
                             class="form-label">Nombre:</label>
+                        <input type="hidden"
+                            name="idplato"
+                            id="idplato">
                         <input type="text"
                             class="form-control"
-                            name="txtNombre"
+                            id="nombre"
+                            name="nombre"
                             autofocus
                             required>
                     </div>
@@ -47,16 +54,18 @@
                         <label for=""
                             class="form-label">Descripcion:</label>
 
-                            <textarea class="form-control"
-                                id="floatingTextarea" name="txtDescripcion"></textarea>
+                        <textarea class="form-control"
+                            id="descripcion"
+                            name="descripcion"></textarea>
 
                     </div>
                     <div class="mb-3">
                         <label for=""
                             class="form-label">Precio:</label>
                         <input type="number"
+                            id="precio"
                             class="form-control"
-                            name="txtPrecio"
+                            name="precio"
                             required>
                     </div>
                     <div class="mb-3">
@@ -64,17 +73,27 @@
                             class="form-label">Imagen:</label>
                         <input type="text"
                             class="form-control"
-                            name="txtImagen"
+                            id="imagen"
+                            name="imagen"
                             placeholder="Ingrese URL de imagen"
                             required>
                     </div>
                     <div class="d-grid">
-                        <input type="hidden"
-                            name="oculto"
-                            value="1">
-                        <input type="submit"
+                        <button data-toggle="tooltip"
+                            data-placement="bottom"
+                            title="Guardar Plato"
                             class="btn btn-primary"
-                            value="Registrar">
+                            type="submit"
+                            id="btnGuardar">Guardar
+                        </button>
+                        <button data-toggle="tooltip"
+                            data-placement="bottom"
+                            title="Cancelar y Volver Atrás"
+                            class="btn btn-danger mt-2"
+                            onclick="cancelarForm()"
+                            type="button">
+                            Cancelar
+                        </button>
                     </div>
                 </form>
             </div>
@@ -83,100 +102,4 @@
 </div>
 </div>
 <?php include '../templates/footerAdmin.php' ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'falta'){
-                    ?>
-<div class="alert alert-warning alert dismissible fade show d-flex justify-content-between align-items-center"
-    role="alert">
-    <div>
-        <strong>Error!</strong>Rellena todos los campos.
-    </div>
-    <button type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"></button>
-</div>
-<?php 
-                        }
-                    ?>
-
-<?php
-                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado'){
-                    ?>
-<div class="alert alert-success alert dismissible fade show d-flex justify-content-between align-items-center"
-    role="alert">
-    <div>
-        <strong>Registrado!</strong>Los datos se registraron correctamente.
-    </div>
-    <button type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"></button>
-</div>
-<?php 
-                        }
-                    ?>
-
-<?php
-                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error'){
-                    ?>
-<div class="alert alert-danger alert dismissible fade show d-flex justify-content-between align-items-center"
-    role="alert">
-    <div>
-        <strong>Error!</strong>Vuelve a intentar.
-    </div>
-    <button type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"></button>
-</div>
-<?php 
-                        }
-                    ?>
-
-<?php
-                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado'){
-                    ?>
-<div class="alert alert-success alert dismissible fade show d-flex justify-content-between align-items-center"
-    role="alert">
-    <div>
-        <strong>Editado!</strong>Los datos fueron actualizados.
-    </div>
-    <button type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"></button>
-</div>
-<?php 
-                        }
-                    ?>
-
-<?php
-                        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
-                    ?>
-<div class="alert alert-warning alert dismissible fade show d-flex justify-content-between align-items-center"
-    role="alert">
-    <div>
-        <strong>Eliminado!</strong>Los datos fueron borrados.
-    </div>
-    <button type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"></button>
-</div>
-<?php 
-                        }
-                ?>
+<script src="../js/platos.js"></script>

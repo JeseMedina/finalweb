@@ -5,13 +5,13 @@ Class Plato{
     public function __contruct(){}
 
     public function insertar($nombre,$descripcion,$precio,$imagen){
-        $sql="INSERT INTO plato (nombre,precio,imagen,estado)
-        VALUES ('$nombre','$precio','$imagen','1')";
+        $sql="INSERT INTO plato (nombre,descripcion,precio,imagen,estado)
+        VALUES ('$nombre','$descripcion','$precio','$imagen','1')";
         return ejecutarConsulta($sql);
     }
 
     public function editar($idplato,$descripcion,$nombre,$precio,$imagen){
-        $sql="UPDATE plato SET nombre='$nombre',precio='$precio',imagen='$imagen' WHERE idplato='$idplato'";
+        $sql="UPDATE plato SET nombre='$nombre',descripcion='$descripcion' ,precio='$precio',imagen='$imagen' WHERE idplato='$idplato'";
         return ejecutarConsulta($sql);
     }
 

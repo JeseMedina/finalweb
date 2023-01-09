@@ -21,7 +21,7 @@ switch($_GET["op"]) {
         }
     break;
 
-    case 'descativar':
+    case 'desactivar':
         $rspta = $plato->desactivar($idplato);
         echo $rspta ? "Plato desactivado" : "El plato no se pudo desactivar";
     break;
@@ -46,11 +46,12 @@ switch($_GET["op"]) {
                 "1"=>$reg->descripcion,
                 "2"=>$reg->precio,
                 "3"=>'<img src="'.$reg->imagen.'" width="50px">',
-                "4"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>',
+                "4"=>($reg->estado)?'<span class="badge bg-success">Activado</span>':'<span class="badge bg-danger">Desactivado</span>',
                 "5"=>($reg->estado)?
+                '<button data-toggle="tooltip" title="Desactivar Plato" class="btn btn-danger mx-2" onclick="desactivar('.$reg->idplato.')"><i class="fa fa-ban"></i></button>'.
                 '<button data-toggle="tooltip" title="Actualizar Plato" class="btn btn-warning" onclick="mostrar('.$reg->idplato.')"><i class="fa fa-pencil"><i/></button>'
-                .'<button data-toggle="tooltip" title="Desactivar Plato" class="btn btn-danger" onclick="desactivar('.$reg->idplato.')"><i class="fa fa-close"></i></button>'
-                :'<button data-toggle="tooltip" title="Activar Plato" class="btn btn-primary" onclick="activar('.$reg->idplato.')"><i class="fa fa-check"></i></button>',
+                :'<button data-toggle="tooltip" title="Activar Plato" class="btn btn-primary mx-2" onclick="activar('.$reg->idplato.')"><i class="fa fa-check"></i></button>'.
+                '<button data-toggle="tooltip" title="Actualizar Plato" class="btn btn-warning" onclick="mostrar('.$reg->idplato.')"><i class="fa fa-pencil"><i/></button>'
             );
         }
         $results = array(

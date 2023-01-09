@@ -26,8 +26,8 @@
               HotFood
             </a>
             <div class="navbar-nav">
-              <a class="nav-item active nav-link" href="../admin/pedidos.php">Pedidos</a>
-              <a class="nav-item active nav-link" href="../admin/platos.php">Platos</a>
+              <a class="nav-item nav-link" href="../admin/pedidos.php">Pedidos</a>
+              <a class="nav-item nav-link" href="../admin/platos.php">Platos</a>
             </div>
         </header>
       </div>
