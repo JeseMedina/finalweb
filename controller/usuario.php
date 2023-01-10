@@ -36,12 +36,12 @@ switch($_GET["op"]) {
         
         while ($reg = $rspta->fetch_object()){
             $data[] = array(
-                "0"=>'<button data-toggle="tooltip" title="Actualizar Plato" class= btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"><i/></button>',
-                "1"=>$reg->user,
-                "2"=>$reg->nombre,
-                "3"=>$reg->celular,
-                "4"=>$reg->direccion,
-                "5"=>$reg->tipo
+                "0"=>$reg->user,
+                "1"=>$reg->nombre,
+                "2"=>$reg->celular,
+                "3"=>$reg->direccion,
+                "4"=>tipoUsuario($reg->tipo),
+                "5"=>'<button data-toggle="tooltip" data-placement="right" title="Mostrar Usuario" class="btn btn-secondary" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-eye"></i></button>'
             );
         }
         $results = array(
@@ -114,6 +114,14 @@ switch($_GET["op"]) {
         session_destroy();
         header("location:../index.php");
     break;
+}
+
+function tipoUsuario($a){
+    if ($a === 'admin'){
+        return '<span class="badge bg-danger">Administrador</span>';
+    } else{
+        return '<span class="badge bg-warning">Cliente</span>';
+    }
 }
 
 ?>

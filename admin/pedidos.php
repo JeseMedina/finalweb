@@ -102,6 +102,5 @@
         </div>
     </div>
 </div>
-</div>
 <?php include '../templates/footerAdmin.php' ?>
 <script src="../js/pedidos.js"></script>

@@ -42,6 +42,8 @@
                             href="../admin/pedidos.php">Pedidos</a>
                         <a class="nav-item nav-link"
                             href="../admin/platos.php">Platos</a>
+                            <a class="nav-item nav-link"
+                            href="../admin/usuarios.php">Usuarios</a>
                     </div>
                 </nav>
             </div>

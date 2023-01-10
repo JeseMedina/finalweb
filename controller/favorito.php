@@ -33,8 +33,40 @@ switch($_GET["op"]){
         echo json_encode($results);
     break;
 
+    case 'listarTodos':
+        $id=$_GET['id'];
+        $rspta = $favorito->listarTodos($id);
+        $total=0;
+
+        echo '<thead>
+            <th>Plato</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Estado</th>
+            </thead>';
+
+        while ($reg = $rspta->fetch_object()){
+            echo '<tr class="filas">
+            <td>'.$reg->nombre.'</td>
+            <td>'.$reg->precio.'</td>
+            <td><img src="'.$reg->imagen.'" width="50px"></td>
+            <td>'.estadoFavorito($reg->estado).'</td>
+            </tr>';
+            $total=$total+$reg->subtotal;
+        }  
+    break;
+
     case 'eliminar':
         $rspta = $favorito->eliminar($idusuario,$idplato);
     break;
 }
+
+function estadoFavorito($a){
+    if ($a == 0){
+        return '<span class="badge bg-danger">Desactivado</span>';
+    } elseif ($a == 1){
+        return '<span class="badge bg-success">Activado</span>';
+    }
+}
+
 ?>

@@ -100,6 +100,5 @@
         </div>
     </div>
 </div>
-</div>
 <?php include '../templates/footerAdmin.php' ?>
 <script src="../js/platos.js"></script>

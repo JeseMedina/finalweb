@@ -85,8 +85,6 @@ switch ($_GET["op"]) {
             "2"=>$reg->fecha,
             "3"=>$reg->hora,
             "4"=>'$ '.$reg->total,
-            // "5"=>($reg->estado==1)?'<span class="label bg-green">Aceptado</span>':
-            // '<span class="label bg-red">Anulado</span>',
             "5"=>estadoPedido($reg->estado),
             "6"=>botonesPedido($reg->estado,$reg->idpedido)
             );

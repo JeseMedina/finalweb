@@ -15,6 +15,11 @@ Class Favorito{
         return ejecutarConsulta($sql);   
     }
 
+    public function listarTodos($idusuario){
+        $sql="SELECT p.nombre,p.precio,p.imagen,p.estado FROM favorito f INNER JOIN plato p ON f.idplato = p.idplato WHERE f.idusuario='$idusuario'";
+        return ejecutarConsulta($sql);   
+    }
+
     public function eliminar($idusuario,$idplato){
         $sql="DELETE FROM favorito WHERE idusuario='$idusuario'";
     }

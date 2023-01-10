@@ -11,7 +11,6 @@ function limpiar(){
     $("#hora").val("");
     $("#total").val("");
     $("#total_pedido").val("");
-
 }
 
 function mostrarForm(flag){
@@ -112,14 +111,5 @@ function entregar(idpedido) {
         }
     })
 }
-
-
-
-
-
-
-
-
-
 
 init();

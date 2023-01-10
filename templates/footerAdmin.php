@@ -1,4 +1,4 @@
-<footer class="container-fluid bg-dark mt-5 fixed-bottom">
+<footer class="container-fluid bg-dark mt-5 position-absolute">
         <div class="row">
             <div class="col-md text-light text-center py-3">
                 Desarrolldo por Jese Medina
