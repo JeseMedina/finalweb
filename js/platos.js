@@ -10,8 +10,7 @@ function init(){
     })
 }
 
-function limpiar()
-{
+function limpiar(){
     $("#idplato").val("");
     $("#nombre").val("");
     $("#precio").val("");
@@ -19,8 +18,7 @@ function limpiar()
     $("#imagen").val("");
 }
 
-function mostrarForm(flag)
-{
+function mostrarForm(flag){
     limpiar();
     if (flag)
     {
@@ -37,16 +35,9 @@ function mostrarForm(flag)
     }
 }
 
-function cancelarForm()
-{
+function cancelarForm(){
     limpiar();
     mostrarForm(false);
-}
-
-
-const getPlatos = async () =>{
-    const response = await fetch('../controller/plato.php?op=listar');
-    return response.json();
 }
 
 function listar(){

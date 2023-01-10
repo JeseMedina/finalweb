@@ -47,19 +47,19 @@ switch ($_GET["op"]) {
         $total=0;
 
         echo '<thead>
-            <th>Opciones</th>
             <th>Plato</th>
             <th>Cantidad</th>
             <th>Precio</th>
+            <th>Imagen</th>
             <th>Subtotal</th>
             </thead>';
 
         while ($reg = $rspta->fetch_object()){
             echo '<tr class="filas">
-            <td></td>
             <td>'.$reg->nombre.'</td>
             <td>'.$reg->cantidad.'</td>
             <td>'.$reg->precio.'</td>
+            <td><img src="'.$reg->imagen.'" width="50px"></td>
             <td>'.$reg->subtotal.'</td>
             </tr>';
             $total=$total+$reg->subtotal;
@@ -79,13 +79,16 @@ switch ($_GET["op"]) {
         $data= Array();
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-            "0"=>botonesPedido($reg->estado,$reg->idpedido),
-            "1"=>$reg->fecha,
-            "2"=>$reg->cliente,
-            "3"=>$reg->usuario,
-            "4"=>$reg->total_venta,
-            "5"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':
-            '<span class="label bg-red">Anulado</span>'
+            
+            "0"=>$reg->usuario,
+            "1"=>$reg->direccion,
+            "2"=>$reg->fecha,
+            "3"=>$reg->hora,
+            "4"=>'$ '.$reg->total,
+            // "5"=>($reg->estado==1)?'<span class="label bg-green">Aceptado</span>':
+            // '<span class="label bg-red">Anulado</span>',
+            "5"=>estadoPedido($reg->estado),
+            "6"=>botonesPedido($reg->estado,$reg->idpedido)
             );
         }
         $results = array(
@@ -97,17 +100,31 @@ switch ($_GET["op"]) {
     break;
 }
 
+function estadoPedido($a){
+    if ($a == 0){
+        return '<span class="badge bg-danger">cancelado</span>';
+    } elseif ($a == 1){
+        return '<span class="badge bg-secondary">Aceptado</span>';
+    } elseif ($a == 2){
+        return '<span class="badge bg-warning">Cocinado</span>';
+    } elseif ($a == 3){
+        return '<span class="badge bg-primary">Llevando</span>';
+    } elseif ($a == 4){
+        return '<span class="badge bg-success">Entregado</span>';
+    }
+}
+
 function botonesPedido($a,$id){
     if ($a == 0){
-        return 'Cancelado';
+        return '';
     } elseif ($a == 1){
-        return '<button data-toggle="tooltip" data-placement="right" title="Mostrar Pedido" class="btn btn-warning" onclick="mostrar('.$id.')"><i class="fa fa-eye"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cancelar Pedido" class="btn btn-danger" onclick="cancelar('.$id.')"><i class="fa fa-close"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cocinar Pedido" class="btn btn-danger" onclick="cocinar('.$id.')"><i class="fa fa-close"></i></button>';
+        return '<button data-toggle="tooltip" data-placement="right" title="Mostrar Pedido" class="btn btn-secondary" onclick="mostrar('.$id.')"><i class="fa fa-eye"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cocinar Pedido" class="btn btn-warning" onclick="cocinar('.$id.')"><i class="fa fa-utensils"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cancelar Pedido" class="btn btn-danger" onclick="cancelar('.$id.')"><i class="fa fa-ban"></i></button>';
     } elseif ($a == 2){
-        return '<button data-toggle="tooltip" data-placement="right" title="Mostrar Pedido" class="btn btn-warning" onclick="mostrar('.$id.')"><i class="fa fa-eye"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cancelar Pedido" class="btn btn-danger" onclick="cancelar('.$id.')"><i class="fa fa-close"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Llevar Pedido" class="btn btn-danger" onclick="llevar('.$id.')"><i class="fa fa-close"></i></button>';
+        return '<button data-toggle="tooltip" data-placement="right" title="Mostrar Pedido" class="btn btn-secondary" onclick="mostrar('.$id.')"><i class="fa fa-eye"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Llevar Pedido" class="btn btn-primary" onclick="llevar('.$id.')"><i class="fa fa-person-running"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cancelar Pedido" class="btn btn-danger" onclick="cancelar('.$id.')"><i class="fa fa-ban"></i></button>';
     } elseif ($a == 3){
-        return '<button data-toggle="tooltip" data-placement="right" title="Mostrar Pedido" class="btn btn-warning" onclick="mostrar('.$id.')"><i class="fa fa-eye"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cancelar Pedido" class="btn btn-danger" onclick="cancelar('.$id.')"><i class="fa fa-close"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Llevar Pedido" class="btn btn-danger" onclick="entregar('.$id.')"><i class="fa fa-close"></i></button>';
+        return '<button data-toggle="tooltip" data-placement="right" title="Mostrar Pedido" class="btn btn-secondary" onclick="mostrar('.$id.')"><i class="fa fa-eye"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Llevar Pedido" class="btn btn-success" onclick="entregar('.$id.')"><i class="fa fa-face-smile"></i></button>'.' <button data-toggle="tooltip" data-placement="right" title="Cancelar Pedido" class="btn btn-danger" onclick="cancelar('.$id.')"><i class="fa fa-ban"></i></button>';
     } elseif ($a == 4){
-        return 'Entregado';
+        return '<button data-toggle="tooltip" data-placement="right" title="Mostrar Pedido" class="btn btn-secondary" onclick="mostrar('.$id.')"><i class="fa fa-eye"></i></button>';
     }
 }
 ?>

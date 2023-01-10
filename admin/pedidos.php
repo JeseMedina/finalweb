@@ -1,80 +1,107 @@
 <?php include '../templates/headerAdmin.php'; ?>
-<?php
-    include_once "../config/conexion.php"; 
-    $sentencia = $bd -> query("select * from pedidos");
-    $pedidos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-?>
-    <div class="container-fluid mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-9">
-
-                <!-- alerta -->
-                <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error'){
-                ?>
-                <div class="alert alert-danger alert dismissible fade show d-flex justify-content-between align-items-center" role="alert">
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12"
+            id="seccionListado">
+            <div class="d-flex justify-content-between">
+                <h3 class="">Pedidos</h3>
+            </div>
+            <div class="table-responsive-xl mt-3">
+                <table class="table table-striped table-borderless align-middle"
+                    id="pedidosTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12"
+            id="seccionFormulario">
+            <h3>Pedido</h3>
+            <div class="card">
+                <form action=""
+                    class="p-4"
+                    method="POST"
+                    id="formulario">
                     <div>
-                        <strong>Error!</strong> Vuelve a intentar.
+                        <label for=""
+                            class="form-label">Fecha:</label>
+                        <input type="hidden"
+                            name="idpedido"
+                            id="idpedido">
+                        <input type="date"
+                            class="form-control"
+                            name="fecha"
+                            id="fecha"
+                            required=""
+                            readonly>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php 
-                    }
-                ?>
-                
-                <?php
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
-                ?>
-                <div class="alert alert-warning alert dismissible fade show d-flex justify-content-between align-items-center" role="alert">
                     <div>
-                        <strong>Entregado!</strong> El pedido fue entrgado.
+                        <label for=""
+                            class="form-label">Hora:</label>
+                        <input type="time"
+                            class="form-control"
+                            name="hora"
+                            id="hora"
+                            required=""
+                            readonly>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php 
-                    }
-                ?>
 
-                <!-- fin alerta -->
-
-                <div class="card">
-                    <div class="card-header">
-                        Lista de Pedidos
-                    </div>
-                    <div class="p-4">
-                        <table class="table align-middle">
+                    <div class="table-responsive-xl mt-3">
+                        <table class="table table-striped table-borderless align-middle"
+                            id="detalleTable">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Celular</th>
-                                    <th scope="col">Direccion</th>
-                                    <th scope="col">Orden</th>
-                                    <th class="text-center" scope="col">Opciones</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Imagen</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">SubTotal</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    foreach($pedidos as $dato){
-                                ?>
-
-                                <tr>
-                                    <td scope="row"><?php echo $dato->codigo;?></td>
-                                    <td><?php echo $dato->nombre;?></td>
-                                    <td><?php echo $dato->celular;?></td>
-                                    <td><?php echo $dato->direccion;?></td>
-                                    <td><?php echo $dato->orden;?></td>
-                                    <td class="text-center"><a onclick="return confirm('¿El pedido fue entregado?')" class="text-warning" href="../controller/eliminarPedidos.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-truck" alt="asd"></i></a></td>
-                                </tr>
-
-                                <?php
-                                    }
-                                ?>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>TOTAL</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>
+                                        <h4 id="total">$ 0.00</h4>
+                                        <input type="hidden"
+                                            name="total_pedido "
+                                            id="total_pedido">
+                                    </th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
-                </div>
+                    <div class="d-grid">
+                        <button data-toggle="tooltip"
+                            data-placement="bottom"
+                            title="Volver Atrás"
+                            class="btn btn-danger mt-2"
+                            onclick="cancelarForm()"
+                            type="button">
+                            Volver Atras
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
+</div>
 <?php include '../templates/footerAdmin.php' ?>
+<script src="../js/pedidos.js"></script>

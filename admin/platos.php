@@ -33,7 +33,7 @@
             id="seccionFormulario">
             <h3>Plato</h3>
             <div class="card">
-                <form action="../controller/registrar.php"
+                <form action=""
                     class="p-4"
                     method="POST"
                     id="formulario">

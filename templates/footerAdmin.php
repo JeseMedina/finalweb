@@ -1,4 +1,4 @@
-<footer class="container-fluid bg-dark mt-5">
+<footer class="container-fluid bg-dark mt-5 fixed-bottom">
         <div class="row">
             <div class="col-md text-light text-center py-3">
                 Desarrolldo por Jese Medina
@@ -10,5 +10,6 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+    <script src="../js/admin.js"></script>
   </body>
 </html>
