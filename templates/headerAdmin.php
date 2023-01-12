@@ -21,6 +21,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet"
         href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
 <body>
@@ -42,7 +44,7 @@
                             href="../admin/pedidos.php">Pedidos</a>
                         <a class="nav-item nav-link"
                             href="../admin/platos.php">Platos</a>
-                            <a class="nav-item nav-link"
+                        <a class="nav-item nav-link"
                             href="../admin/usuarios.php">Usuarios</a>
                     </div>
                 </nav>

@@ -5,6 +5,9 @@
             id="seccionListado">
             <div class="d-flex justify-content-between">
                 <h3 class="">Pedidos</h3>
+                <button class="btn btn-success"
+                    id="btnNuevo"
+                    onclick="mostrarForm(true)">Nuevo</button>
             </div>
             <div class="table-responsive-xl mt-3">
                 <table class="table table-striped table-borderless align-middle"
@@ -13,6 +16,7 @@
                         <tr>
                             <th scope="col">Usuario</th>
                             <th scope="col">Direccion</th>
+                            <th scope="col">Celular</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Hora</th>
                             <th scope="col">Total</th>
@@ -33,7 +37,7 @@
                     class="p-4"
                     method="POST"
                     id="formulario">
-                    <div>
+                    <div class="d-grid">
                         <label for=""
                             class="form-label">Fecha:</label>
                         <input type="hidden"
@@ -43,19 +47,50 @@
                             class="form-control"
                             name="fecha"
                             id="fecha"
-                            required=""
-                            readonly>
+                            required="">
                     </div>
-                    <div>
+                    <div class="d-grid">
                         <label for=""
                             class="form-label">Hora:</label>
                         <input type="time"
                             class="form-control"
                             name="hora"
                             id="hora"
+                            required="">
+                    </div>
+                    <div class="d-grid">
+                        <label for=""
+                            class="form-label">Cliente:</label>
+                        <select id="idcliente"
+                            name="idcliente"
+                            class="form-control selectpicker"
+                            data-live-search="true"
+                            required>
+                        </select>
+                    </div>
+                    <div class="d-grid">
+                        <label for=""
+                            class="form-label">Direccion:</label>
+                        <input type="text"
+                            class="form-control"
+                            name="direccion"
+                            id="direccion"
                             required=""
                             readonly>
+
                     </div>
+                    <div class="d-grid">
+                        <label for=""
+                            class="form-label">Celular:</label>
+                        <input type="text"
+                            class="form-control"
+                            name="celular"
+                            id="celular"
+                            required=""
+                            readonly>
+
+                    </div>
+
 
                     <div class="table-responsive-xl mt-3">
                         <table class="table table-striped table-borderless align-middle"
@@ -88,6 +123,13 @@
                         </table>
                     </div>
                     <div class="d-grid">
+                        <button data-toggle="tooltip"
+                            data-placement="bottom"
+                            title="Guardar Plato"
+                            class="btn btn-primary"
+                            type="submit"
+                            id="btnGuardar">Guardar
+                        </button>
                         <button data-toggle="tooltip"
                             data-placement="bottom"
                             title="Volver Atrás"

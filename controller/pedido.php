@@ -82,11 +82,12 @@ switch ($_GET["op"]) {
             
             "0"=>$reg->usuario,
             "1"=>$reg->direccion,
-            "2"=>$reg->fecha,
-            "3"=>$reg->hora,
-            "4"=>'$ '.$reg->total,
-            "5"=>estadoPedido($reg->estado),
-            "6"=>botonesPedido($reg->estado,$reg->idpedido)
+            "2"=>$reg->celular,
+            "3"=>$reg->fecha,
+            "4"=>$reg->hora,
+            "5"=>'$ '.$reg->total,
+            "6"=>estadoPedido($reg->estado),
+            "7"=>botonesPedido($reg->estado,$reg->idpedido)
             );
         }
         $results = array(

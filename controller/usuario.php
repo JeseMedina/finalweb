@@ -52,6 +52,14 @@ switch($_GET["op"]) {
         echo json_encode($results);
     break;
 
+    case 'selectClientes':
+        $rspta = $usuario->listarClientes();
+ 
+        while ($reg = $rspta->fetch_object()){
+            echo '<option value='.$reg->idusuario.'>'.$reg->user.'</option>';
+        }
+    break;
+
     case 'listarClientes':
         $rspta = $usuario->listarClientes();
         $data = Array();

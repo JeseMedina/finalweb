@@ -3,31 +3,42 @@ var tabla;
 function init() {
     mostrarForm(false);
     listar();
+
+    $("#formulario").on("submit", function (e) {
+        guardaryeditar(e);
+    });
+
+    $.post("../controller/usuario.php?op=selectClientes", function (r) {
+        $("#idcliente").html(r);
+        $('#idcliente').selectpicker('refresh');
+    });
 }
 
-function limpiar(){
+function limpiar() {
     $("#idpedido").val("");
     $("#fecha").val("");
     $("#hora").val("");
+    $("#idcliente").val("");
+    $("#direccion").val("");
+    $("#celular").val("");
     $("#total").val("");
     $("#total_pedido").val("");
 }
 
-function mostrarForm(flag){
+function mostrarForm(flag) {
     limpiar();
-    if (flag)
-    {
+    if (flag) {
         $("#seccionListado").hide();
         $("#seccionFormulario").show();
+        $("#btnGuardar").prop("disabled", false);
     }
-    else
-    {
+    else {
         $("#seccionListado").show();
         $("#seccionFormulario").hide();
     }
 }
 
-function cancelarForm(){
+function cancelarForm() {
     limpiar();
     mostrarForm(false);
 }
@@ -53,19 +64,46 @@ function listar() {
         }).DataTable();
 }
 
-function mostrar(idpedido){
-    $.post("../controller/pedido.php?op=mostrar",{idpedido : idpedido}, function(data, status){
-        data = JSON.parse(data);        
+function mostrar(idpedido) {
+    $.post("../controller/pedido.php?op=mostrar", { idpedido: idpedido }, function (data, status) {
+        data = JSON.parse(data);
         mostrarForm(true);
 
         $("#idpedido").val(data.idpedido);
         $("#fecha").val(data.fecha);
         $("#hora").val(data.hora);
+        $("#idcliente").selectpicker('refresh');
+        $("#idcliente").val(data.idusuario);
+        $("#direccion").val(data.direccion);
+        $("#celular").val(data.celular);
+
+        $("#btnGuardar").prop("disabled", true);
     });
 
-    $.post("../controller/pedido.php?op=listarDetalle&id="+idpedido,function(r){
+    $.post("../controller/pedido.php?op=listarDetalle&id=" + idpedido, function (r) {
         $("#detalleTable").html(r);
-});
+    });
+}
+
+function guardaryeditar(e) {
+    e.preventDefault();
+    $("#btnGuardar").prop("disabled", true);
+    var formData = new FormData($("#formulario")[0]);
+
+    $.ajax({
+        url: "../controller/pedido.php?op=guardaryeditar",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+
+        success: function (datos) {
+            bootbox.alert(datos);
+            mostrarForm(false);
+            tabla.ajax.reload();
+        }
+    });
+    limpiar();
 }
 
 function cancelar(idpedido) {

@@ -46,12 +46,12 @@ Class Pedido{
     }
 
     public function listar(){
-        $sql="SELECT p.idpedido,p.fecha,p.hora,p.total,u.nombre as usuario,u.direccion, p.estado FROM pedido p INNER JOIN usuario u ON p.idusuario = u.idusuario ORDER BY p.idpedido desc";
+        $sql="SELECT p.idpedido,p.fecha,p.hora,p.total,u.nombre as usuario,u.direccion,u.celular, p.estado FROM pedido p INNER JOIN usuario u ON p.idusuario = u.idusuario ORDER BY p.idpedido desc";
         return ejecutarConsulta($sql); 
     }
 
     public function mostrar($idpedido){
-        $sql="SELECT p.idpedido,p.fecha,p.hora,p.total,u.nombre as usuario FROM pedido p INNER JOIN usuario u ON p.idusuario = u.idusuario WHERE p.idpedido = '$idpedido'";
+        $sql="SELECT p.idpedido,p.fecha,p.hora,p.total,u.nombre as usuario,u.direccion,u.celular FROM pedido p INNER JOIN usuario u ON p.idusuario = u.idusuario WHERE p.idpedido = '$idpedido'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
