@@ -78,7 +78,7 @@
                             placeholder="Ingrese URL de imagen"
                             required>
                     </div>
-                    <div class="d-grid">
+                    <div class="mb-3">
                         <button data-toggle="tooltip"
                             data-placement="bottom"
                             title="Guardar Plato"

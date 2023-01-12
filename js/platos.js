@@ -1,4 +1,4 @@
-var tabla;
+let tabla;
 
 function init(){
     mostrarForm(false);
@@ -65,7 +65,7 @@ function guardaryeditar(e)
 {
     e.preventDefault();
     $("#btnGuardar").prop("disabled",true);
-    var formData = new FormData($("#formulario")[0]);
+    let formData = new FormData($("#formulario")[0]);
  
     $.ajax({
         url: "../controller/plato.php?op=guardaryeditar",

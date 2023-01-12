@@ -82,5 +82,23 @@ switch($_GET["op"]) {
             "results"=>$data);
         echo json_encode($results);
     break;
+
+    case 'listarPlatosActivos':
+        $rspta=$plato->listarActivos();
+        $data= Array();
+        while ($reg=$rspta->fetch_object()){
+            $data[]=array(
+                "0"=>'<button data-toggle="tooltip" data-placement="right" title="Agregar Producto" class="btn btn-warning" onclick="agregarDetalle('.$reg->idplato.',\''.$reg->nombre.'\',\''.$reg->precio.'\')"><span class="fa fa-plus"></span></button>',
+                "1"=>$reg->nombre,
+                "2"=>$reg->precio
+                );
+        }
+        $results = array(
+            "sEcho"=>1,
+            "iTotalRecords"=>count($data),
+            "iTotalDisplayRecords"=>count($data),
+            "aaData"=>$data);
+        echo json_encode($results);
+    break;
 }
 ?>

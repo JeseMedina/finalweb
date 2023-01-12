@@ -15,7 +15,7 @@ $tipo = isset($_POST["tipo"]) ? limpiarCadena($_POST["tipo"]):"";
 switch($_GET["op"]) {
     case 'guardaryeditar':
         if(empty($iusuario)){
-            $contrasenahash=hash("SHA256",$contrasena);
+            $contrasenahash=hash("SHA256",$user);
 
             $rspta = $usuario->insertar($user,$contrasenahash,$nombre,$celular,$direccion);
             echo $rspta ? "Usuario registrado" : "El usuario no se pudo registrar";
@@ -82,40 +82,40 @@ switch($_GET["op"]) {
         echo json_encode($results);
     break;
 
-    case 'verificar':
-        echo json_encode($_POST['user'],$_POST['contrasena']);
+    // case 'verificar':
+    //     echo json_encode($_POST['user'],$_POST['contrasena']);
         
         
         
-        // $contrasenahash=hash("SHA256",$contrasena);
-        // $rspta=$usuario->verificar($user,$contrasenahash);
-        // $rspta=$usuario->verificar($usera,$contrasenaa);
+    //     $contrasenahash=hash("SHA256",$contrasena);
+    //     $rspta=$usuario->verificar($user,$contrasenahash);
+    //     $rspta=$usuario->verificar($usera,$contrasenaa);
         
-        // $fetch=$rspta->fetch_object();
-        // if (isset($fetch)) {
-        //     $_SESSION['idusuario']=$fetch->idusuario;
-        //     $_SESSION['nombre']=$fetch->nombre;
-        //     $_SESSION['user']=$fetch->user;
-        //     $_SESSION['tipo']=$fetch->tipo;
-        // }
-        // echo json_encode($fetch);
+    //     $fetch=$rspta->fetch_object();
+    //     if (isset($fetch)) {
+    //         $_SESSION['idusuario']=$fetch->idusuario;
+    //         $_SESSION['nombre']=$fetch->nombre;
+    //         $_SESSION['user']=$fetch->user;
+    //         $_SESSION['tipo']=$fetch->tipo;
+    //     }
+    //     echo json_encode($fetch);
 
-    break;
+    // break;
 
-    case 'verificarOlvido':
-        $rspta=$usuario->verificarOlvido($user,$celular);
-        $fetch=$rspta->fetch_object();
+    // case 'verificarOlvido':
+    //     $rspta=$usuario->verificarOlvido($user,$celular);
+    //     $fetch=$rspta->fetch_object();
 
-        echo json_encode($fetch);
-    break;
+    //     echo json_encode($fetch);
+    // break;
 
-    case 'cambiarContrasena':
-        $contrasenahash=hash("SHA256",$contrasena);
-        $rspta=$usuario->cambiarContrasena($user,$contrasenahash);
-        $fetch=$rspta->fetch_object();
+    // case 'cambiarContrasena':
+    //     $contrasenahash=hash("SHA256",$contrasena);
+    //     $rspta=$usuario->cambiarContrasena($user,$contrasenahash);
+    //     $fetch=$rspta->fetch_object();
 
-        echo json_encode($fetch);
-    break;
+    //     echo json_encode($fetch);
+    // break;
 
     case 'salir':
         session_unset();

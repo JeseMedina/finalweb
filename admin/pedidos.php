@@ -37,7 +37,7 @@
                     class="p-4"
                     method="POST"
                     id="formulario">
-                    <div class="d-grid">
+                    <div class="mb-3">
                         <label for=""
                             class="form-label">Fecha:</label>
                         <input type="hidden"
@@ -49,7 +49,7 @@
                             id="fecha"
                             required="">
                     </div>
-                    <div class="d-grid">
+                    <div class="mb-3">
                         <label for=""
                             class="form-label">Hora:</label>
                         <input type="time"
@@ -63,32 +63,40 @@
                             class="form-label">Cliente:</label>
                         <select id="idcliente"
                             name="idcliente"
-                            class="form-control selectpicker"
-                            data-live-search="true"
-                            required>
+                            class="form-select selectpicker"
+                            data-live-search="true">
                         </select>
                     </div>
-                    <div class="d-grid">
+                    <div class="mb-3">
                         <label for=""
                             class="form-label">Direccion:</label>
                         <input type="text"
                             class="form-control"
                             name="direccion"
-                            id="direccion"
-                            required=""
-                            readonly>
-
+                            id="direccion">
                     </div>
-                    <div class="d-grid">
+                    <div class="mb-3">
                         <label for=""
                             class="form-label">Celular:</label>
                         <input type="text"
                             class="form-control"
                             name="celular"
-                            id="celular"
-                            required=""
-                            readonly>
-
+                            id="celular">
+                    </div>
+                    <div class="mb-3">
+                        <h5>Agregar Platos</h5>
+                        <table class="table table-striped table-borderless align-middle"
+                            id="platosTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Opciones</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
 
 
@@ -115,7 +123,7 @@
                                     <th>
                                         <h4 id="total">$ 0.00</h4>
                                         <input type="hidden"
-                                            name="total_pedido "
+                                            name="total_pedido"
                                             id="total_pedido">
                                     </th>
                                 </tr>

@@ -7,6 +7,9 @@
 
             <div class="d-flex justify-content-between">
                 <h3 class="">Usuarios</h3>
+                <button class="btn btn-success"
+                    id="btnNuevo"
+                    onclick="mostrarForm(true)">Nuevo</button>
             </div>
 
             <div class="table-responsive-xl mt-3">
@@ -57,8 +60,6 @@
                             name="nombre"
                             autofocus
                             required>
-
-
                     </div>
                     <div class="mb-3">
                         <label for=""
@@ -81,15 +82,20 @@
                     <div class="mb-3">
                         <label for=""
                             class="form-label">Tipo:</label>
-                        <input type="text"
-                            class="form-control"
+                        <select class="form-select"
                             id="tipo"
                             name="tipo"
+                            data-live-search="true"
                             required>
+                            <option value="cliente">Cliente</option>
+                            <option value="empleado">Empleado</option>
+                            <option value="admin"
+                                disabled>Admin</option>
+                        </select>
                     </div>
-                </form>
             </div>
-            <h3 class="my-4">Favoritos</h3>
+            <div id="favoritos">
+                <h3 class="my-4">Favoritos</h3>
                 <div class="col-md-12">
                     <div class="table-responsive-xl mt-3">
                         <table class="table table-striped table-borderless align-middle"
@@ -105,8 +111,16 @@
                             <tbody></tbody>
                         </table>
                     </div>
+                </div>
             </div>
-            <div class="d-grid">
+            <div class="mb-3">
+                <button data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Guardar Plato"
+                    class="btn btn-primary"
+                    type="submit"
+                    id="btnGuardar">Guardar
+                </button>
                 <button data-toggle="tooltip"
                     data-placement="bottom"
                     title="Volver Atrás"
@@ -116,7 +130,7 @@
                     Volver Atras
                 </button>
             </div>
-
+            </form>
         </div>
     </div>
 </div>

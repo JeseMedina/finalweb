@@ -1,4 +1,18 @@
-var tabla;
+let tabla;
+
+let date = new Date();
+let hora = `${date.toLocaleTimeString().split(":", 3)[0]}:${date.toLocaleTimeString().split(":", 3)[1]}`;
+
+const mes = () =>{
+    if(date.getMonth()>=9){
+        return date.getMonth();
+    } else {
+        return `${date.getMonth()}`;
+    }
+}
+let fecha = `${date.getFullYear()}-${mes()+1}-${date.getDate()}`;
+
+
 
 function init() {
     mostrarForm(false);
@@ -16,13 +30,14 @@ function init() {
 
 function limpiar() {
     $("#idpedido").val("");
-    $("#fecha").val("");
-    $("#hora").val("");
+    $("#fecha").val(fecha);
+    $("#hora").val(hora);
     $("#idcliente").val("");
     $("#direccion").val("");
     $("#celular").val("");
     $("#total").val("");
     $("#total_pedido").val("");
+    detalles=0;
 }
 
 function mostrarForm(flag) {
@@ -31,6 +46,8 @@ function mostrarForm(flag) {
         $("#seccionListado").hide();
         $("#seccionFormulario").show();
         $("#btnGuardar").prop("disabled", false);
+        $("#listadoPlatos").show();
+        listarPlatos();
     }
     else {
         $("#seccionListado").show();
@@ -68,6 +85,7 @@ function mostrar(idpedido) {
     $.post("../controller/pedido.php?op=mostrar", { idpedido: idpedido }, function (data, status) {
         data = JSON.parse(data);
         mostrarForm(true);
+        $("#listadoPlatos").hide();
 
         $("#idpedido").val(data.idpedido);
         $("#fecha").val(data.fecha);
@@ -85,10 +103,33 @@ function mostrar(idpedido) {
     });
 }
 
+function listarPlatos(){
+    tabla=$('#platosTable').dataTable({
+        "aProcessing": true,
+        "aServerSide": true,
+        dom: 'Bfrtip',
+        buttons: [                
+                     
+                ],
+        "ajax":
+                {
+                    url: '../controller/plato.php?op=listarPlatosActivos',
+                    type : "get",
+                    dataType : "json",                      
+                    error: function(e){
+                        console.log(e.responseText);    
+                    }
+                },
+        "bDestroy": true,
+        "iDisplayLength": 5,
+        "order": [[ 0, "desc" ]]
+    }).DataTable();
+}
+
 function guardaryeditar(e) {
     e.preventDefault();
     $("#btnGuardar").prop("disabled", true);
-    var formData = new FormData($("#formulario")[0]);
+    let formData = new FormData($("#formulario")[0]);
 
     $.ajax({
         url: "../controller/pedido.php?op=guardaryeditar",
@@ -106,6 +147,69 @@ function guardaryeditar(e) {
     limpiar();
 }
 
+let cont = 0;
+let detalles=0;
+function agregarDetalle(idPlato, plato, precio) {
+    let cantidad = 1;
+
+    if (idPlato != "") {
+        let subtotal = cantidad * precio;
+        let fila = '<tr class="filas" id="fila' + cont + '">' +
+            '<td><button data-toggle="tooltip" data-placement="right" title="Eliminar Detalle" type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
+            '<td><input type="hidden" name="idPlato[]" value="' + idPlato + '">' + plato + '</td>' +
+            '<td><input type="number" name="cantidad[]" step=".10" id="cantidad[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="' + cantidad + '"></td>' +
+            '<td><input type="number" name="precio[]" value="' + precio + '"></td>' +
+            '<td><span name="subtotal" id="subtotal' + cont + '">' + subtotal + '</span></td>' +
+            '</tr>';
+        cont++;
+        detalles = detalles + 1;
+        $('#detalles').append(fila);
+        modificarSubototales();
+    }
+    else {
+        alert("Error al ingresar el detalle, revisar los datos del plato");
+    }
+}
+
+function modificarSubototales() {
+    var cant = document.getElementsByName("cantidad[]");
+    var prec = document.getElementsByName("precio[]");
+    var sub = document.getElementsByName("subtotal");
+
+    for (var i = 0; i < cant.length; i++) {
+        var inpC = cant[i];
+        var inpP = prec[i];
+        var inpS = sub[i];
+
+        inpS.value = inpC.value * inpP.value;
+        document.getElementsByName("subtotal")[i].innerHTML = inpS.value;
+    }
+    calcularTotales();
+
+}
+
+function calcularTotales() {
+    var sub = document.getElementsByName("subtotal");
+    var total = 0.0;
+
+    for (var i = 0; i < sub.length; i++) {
+        total += document.getElementsByName("subtotal")[i].value;
+    }
+    $("#total").html("$ " + total);
+    $("#total_pedido").val(total);
+    evaluar();
+}
+
+function evaluar() {
+    if (detalles > 0) {
+        $("#btnGuardar").prop("disabled", false);
+    }
+    else {
+        $("#btnGuardar").prop("disabled", true);
+        cont = 0;
+    }
+}
+
 function cancelar(idpedido) {
     bootbox.confirm("¿Está Seguro de cancelar el Pedido?", function (result) {
         if (result) {
@@ -116,6 +220,13 @@ function cancelar(idpedido) {
         }
     })
 }
+
+function eliminarDetalle(indice){
+    $("#fila" + indice).remove();
+    calcularTotales();
+    detalles=detalles-1;
+    evaluar()
+  }
 
 function cocinar(idpedido) {
     bootbox.confirm("¿Está Seguro de comenzar a cocinar el Pedido?", function (result) {
