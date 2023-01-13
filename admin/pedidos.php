@@ -58,12 +58,12 @@
                             id="hora"
                             required="">
                     </div>
-                    <div class="d-grid">
+                    <div class="d-grid mb-3">
                         <label for=""
                             class="form-label">Cliente:</label>
-                        <select id="idcliente"
-                            name="idcliente"
-                            class="form-select selectpicker"
+                        <select name="idcliente"
+                            id="idcliente"
+                            class="form-control"
                             data-live-search="true">
                         </select>
                     </div>
@@ -73,7 +73,8 @@
                         <input type="text"
                             class="form-control"
                             name="direccion"
-                            id="direccion">
+                            id="direccion"
+                            readonly>
                     </div>
                     <div class="mb-3">
                         <label for=""
@@ -81,7 +82,8 @@
                         <input type="text"
                             class="form-control"
                             name="celular"
-                            id="celular">
+                            id="celular"
+                            readonly>
                     </div>
                     <div class="mb-3">
                         <h5>Agregar Platos</h5>

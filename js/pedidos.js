@@ -21,10 +21,10 @@ function init() {
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
     });
-
     $.post("../controller/usuario.php?op=selectClientes", function (r) {
         $("#idcliente").html(r);
-        $('#idcliente').selectpicker('refresh');
+        $("#idcliente").select2();
+        // $('#idcliente').selectpicker('refresh');
     });
 }
 
@@ -90,7 +90,7 @@ function mostrar(idpedido) {
         $("#idpedido").val(data.idpedido);
         $("#fecha").val(data.fecha);
         $("#hora").val(data.hora);
-        $("#idcliente").selectpicker('refresh');
+        // $("#idcliente").selectpicker('refresh');
         $("#idcliente").val(data.idusuario);
         $("#direccion").val(data.direccion);
         $("#celular").val(data.celular);
