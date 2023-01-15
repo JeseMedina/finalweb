@@ -88,7 +88,8 @@ switch($_GET["op"]) {
         $data= Array();
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button data-toggle="tooltip" data-placement="right" title="Agregar Producto" class="btn btn-warning" onclick="agregarDetalle('.$reg->idplato.',\''.$reg->nombre.'\',\''.$reg->precio.'\')"><span class="fa fa-plus"></span></button>',
+                // "0"=>'<button data-toggle="tooltip" data-placement="right" title="Agregar Producto" class="btn btn-warning" onclick="agregarDetalle('.$reg->idplato.',\''.$reg->nombre.'\',\''.$reg->precio.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button data-toggle="tooltip" data-placement="right" title="Agregar Producto" class="btn btn-warning" onclick="leer('.$reg->idplato.',\''.$reg->nombre.'\',\''.$reg->precio.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->precio
                 );

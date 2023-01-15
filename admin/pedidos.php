@@ -5,9 +5,6 @@
             id="seccionListado">
             <div class="d-flex justify-content-between">
                 <h3 class="">Pedidos</h3>
-                <button class="btn btn-success"
-                    id="btnNuevo"
-                    onclick="mostrarForm(true)">Nuevo</button>
             </div>
             <div class="table-responsive-xl mt-3">
                 <table class="table table-striped table-borderless align-middle"
@@ -32,125 +29,98 @@
         <div class="col-md-12"
             id="seccionFormulario">
             <h3>Pedido</h3>
-            <div class="card">
-                <form action=""
-                    class="p-4"
-                    method="POST"
-                    id="formulario">
-                    <div class="mb-3">
-                        <label for=""
-                            class="form-label">Fecha:</label>
-                        <input type="hidden"
-                            name="idpedido"
-                            id="idpedido">
-                        <input type="date"
-                            class="form-control"
-                            name="fecha"
-                            id="fecha"
-                            required="">
-                    </div>
-                    <div class="mb-3">
-                        <label for=""
-                            class="form-label">Hora:</label>
-                        <input type="time"
-                            class="form-control"
-                            name="hora"
-                            id="hora"
-                            required="">
-                    </div>
-                    <div class="d-grid mb-3">
-                        <label for=""
-                            class="form-label">Cliente:</label>
-                        <select name="idcliente"
-                            id="idcliente"
-                            class="form-control"
-                            data-live-search="true">
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for=""
-                            class="form-label">Direccion:</label>
-                        <input type="text"
-                            class="form-control"
-                            name="direccion"
-                            id="direccion"
-                            readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label for=""
-                            class="form-label">Celular:</label>
-                        <input type="text"
-                            class="form-control"
-                            name="celular"
-                            id="celular"
-                            readonly>
-                    </div>
-                    <div class="mb-3">
-                        <h5>Agregar Platos</h5>
-                        <table class="table table-striped table-borderless align-middle"
-                            id="platosTable">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Opciones</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">precio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+            <form action=""
+                class="p-4"
+                method="POST"
+                id="formulario">
+                <div class="mb-3">
+                    <label for=""
+                        class="form-label">Fecha:</label>
+                    <input type="hidden"
+                        name="idpedido"
+                        id="idpedido">
+                    <input type="date"
+                        class="form-control"
+                        name="fecha"
+                        id="fecha"
+                        readonly>
+                </div>
+                <div class="mb-3">
+                    <label for=""
+                        class="form-label">Hora:</label>
+                    <input type="time"
+                        class="form-control"
+                        name="hora"
+                        id="hora"
+                        readonly>
+                </div>
+                <div class="d-grid mb-3">
+                    <label for=""
+                        class="form-label">Cliente:</label>
+                    <input type="text" id="cliente" class="form-control" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for=""
+                        class="form-label">Direccion:</label>
+                    <input type="text"
+                        class="form-control"
+                        name="direccion"
+                        id="direccion"
+                        readonly>
+                </div>
+                <div class="mb-3">
+                    <label for=""
+                        class="form-label">Celular:</label>
+                    <input type="text"
+                        class="form-control"
+                        name="celular"
+                        id="celular"
+                        readonly>
+                </div>
 
+                <h5>Pedido</h5>
+                <div class="table-responsive-xl mt-3">
+                    <table class="table table-striped table-borderless align-middle"
+                        id="detalles">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">SubTotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>TOTAL</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <h4 id="total">$ 0.00</h4>
+                                    <input type="hidden"
+                                        name="total_pedido"
+                                        id="total_pedido">
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="d-grid">
+                    <button data-toggle="tooltip"
+                        data-placement="bottom"
+                        title="Volver Atrás"
+                        class="btn btn-danger mt-2"
+                        onclick="cancelarForm()"
+                        type="button">
+                        Volver Atras
+                    </button>
+                </div>
+            </form>
 
-                    <div class="table-responsive-xl mt-3">
-                        <table class="table table-striped table-borderless align-middle"
-                            id="detalleTable">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">Cantidad</th>
-                                    <th scope="col">SubTotal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>TOTAL</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>
-                                        <h4 id="total">$ 0.00</h4>
-                                        <input type="hidden"
-                                            name="total_pedido"
-                                            id="total_pedido">
-                                    </th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <div class="d-grid">
-                        <button data-toggle="tooltip"
-                            data-placement="bottom"
-                            title="Guardar Plato"
-                            class="btn btn-primary"
-                            type="submit"
-                            id="btnGuardar">Guardar
-                        </button>
-                        <button data-toggle="tooltip"
-                            data-placement="bottom"
-                            title="Volver Atrás"
-                            class="btn btn-danger mt-2"
-                            onclick="cancelarForm()"
-                            type="button">
-                            Volver Atras
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 </div>
