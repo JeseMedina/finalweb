@@ -84,27 +84,21 @@ switch($_GET["op"]) {
     break;
 
     case 'verificar':
-        
         $contrasenahash=hash("SHA256",$contrasena);
         $rspta=$usuario->verificar($user,$contrasenahash);
-        $data = mysqli_fetch_assoc($rspta);
-    echo json_encode($data);
-        
-        // $fetch=$rspta->fetch_object();
-        // if (isset($fetch)) {
-        //     $_SESSION['idusuario']=$fetch->idusuario;
-        //     $_SESSION['nombre']=$fetch->nombre;
-        //     $_SESSION['user']=$fetch->user;
-        //     $_SESSION['tipo']=$fetch->tipo;
-        // }
-        // echo json_encode($fetch);
 
+        $fetch=mysqli_fetch_assoc($rspta);
+        $_SESSION['idusuario']=$fetch['idusuario'];
+        $_SESSION['nombre']=$fetch['nombre'];
+        $_SESSION['user']=$fetch['user'];
+        $_SESSION['tipo']=$fetch['tipo'];
+        echo json_encode($fetch);
     break;
 
     case 'salir':
         session_unset();
         session_destroy();
-        header("location:../index.php");
+        header("location:../login.html");
     break;
 }
 

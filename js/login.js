@@ -7,10 +7,14 @@ $("#frmAcceso").on('submit', function (e) {
     $.post("controller/usuario.php?op=verificar",
         { 'user': user, 'contrasena': contrasena },
         function (data) {
+            console.log(data)
             if (data != 'null') {
                 $(location).attr("href", "index.php");
             } else {
                 $("#error").html('Usuario y/o Contraseña incorrectos');
+                setTimeout(function () {
+                    $("#error").html('');
+                }, 5000);
             }
         }
     );

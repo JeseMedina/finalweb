@@ -1,7 +1,7 @@
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
-menu.onclick = () =>{
+menu.onclick = () => {
   menu.classList.toggle('fa-times');
   navbar.classList.toggle('active');
 }
@@ -19,7 +19,7 @@ const listar = async () => {
     menuList.innerHTML += `
       <div class="box">
         <div class="image">
-          <img src="${plato.imagen}" alt="${plato.nombre}">
+          <img loading=lazy src="${plato.imagen}" alt="${plato.nombre}">
         </div>
         <div class="content">
           <h3>${plato.nombre}</h3>

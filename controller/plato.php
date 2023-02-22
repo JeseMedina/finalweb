@@ -45,7 +45,7 @@ switch($_GET["op"]) {
                 "0"=>$reg->nombre,
                 "1"=>$reg->descripcion,
                 "2"=>$reg->precio,
-                "3"=>'<img src="'.$reg->imagen.'" width="50px">',
+                "3"=>'<img loading=lazy src="'.$reg->imagen.'" width="50px">',
                 "4"=>($reg->estado)?'<span class="badge bg-success">Activado</span>':'<span class="badge bg-danger">Desactivado</span>',
                 "5"=>($reg->estado)?
                 '<button data-toggle="tooltip" title="Desactivar Plato" class="btn btn-danger mx-2" onclick="desactivar('.$reg->idplato.')"><i class="fa fa-ban"></i></button>'.

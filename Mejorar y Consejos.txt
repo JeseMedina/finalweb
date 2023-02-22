@@ -1,11 +1,6 @@
--Dar mas informacion cuando se comete un error.
--Tamaño de letra
--LOGIN
--REGSITRO
+-Dar mas informacion cuando se comete un error.?????????
 -usuario/PEDIDOS
 -eliminar admin/usuarios/crear???
 
 -hacer una carpeta para el usuario donde pueda ver  y hacer pedidos y sus favoritos.
 -nuevo pedido (que pasa si el cliente va hasta la tienda a comprar??)
-
-buscar los todo:

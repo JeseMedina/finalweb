@@ -49,7 +49,7 @@ switch($_GET["op"]){
             echo '<tr class="filas">
             <td>'.$reg->nombre.'</td>
             <td>'.$reg->precio.'</td>
-            <td><img src="'.$reg->imagen.'" width="50px"></td>
+            <td><img loading=lazy src="'.$reg->imagen.'" width="50px"></td>
             <td>'.estadoFavorito($reg->estado).'</td>
             </tr>';
             $total=$total+$reg->subtotal;

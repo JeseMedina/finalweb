@@ -19,5 +19,8 @@ $("#frmAcceso").on('submit', function (e) {
     });
   } else {
     $("#error").html('Las contraseñas no coinciden');
+    setTimeout(function () {
+      $("#error").html('');
+    }, 5000);
   }
 });

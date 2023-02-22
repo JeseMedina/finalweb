@@ -59,7 +59,7 @@ switch ($_GET["op"]) {
             <td>'.$reg->nombre.'</td>
             <td>'.$reg->cantidad.'</td>
             <td>'.$reg->precio.'</td>
-            <td><img src="'.$reg->imagen.'" width="50px"></td>
+            <td><img loading=lazy src="'.$reg->imagen.'" width="50px"></td>
             <td>'.$reg->subtotal.'</td>
             </tr>';
             $total=$total+$reg->subtotal;
