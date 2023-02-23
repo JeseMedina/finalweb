@@ -1,6 +1,5 @@
--Dar mas informacion cuando se comete un error.?????????
--usuario/PEDIDOS
--eliminar admin/usuarios/crear???
-
--hacer una carpeta para el usuario donde pueda ver  y hacer pedidos y sus favoritos.
--nuevo pedido (que pasa si el cliente va hasta la tienda a comprar??)
+admin/pedidos/nuevo
+usuario/pedidos
+usuario/pedidos/nuevo
+usuario/favoritos
+usuario/perfil

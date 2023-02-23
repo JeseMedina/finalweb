@@ -284,6 +284,10 @@ header .icons #menu-bars{
     margin:0 auto;
 }
 
+.order form table{
+    width: 100%;
+}
+
 .order form .inputBox{
     display: flex;
     flex-wrap: wrap;
@@ -295,6 +299,7 @@ header .icons #menu-bars{
 }
 
 .order form .inputBox .input input,
+.order form .inputBox .input select,
 .order form .inputBox .input textarea{
     background:#eee;
     border-radius: .5rem;
@@ -307,6 +312,7 @@ header .icons #menu-bars{
 }
 
 .order form .inputBox .input input:focus,
+.order form .inputBox .input select:focus,
 .order form .inputBox .input textarea:focus{
     border:.1rem solid var(--secondary);
 }

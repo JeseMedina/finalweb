@@ -96,7 +96,6 @@ if ($_SESSION['tipo'] != 'admin') {
               data-live-search="true"
               required>
               <option value="cliente">Cliente</option>
-              <option value="empleado">Empleado</option>
               <option value="admin"
                 disabled>Admin</option>
             </select>
@@ -132,7 +131,7 @@ if ($_SESSION['tipo'] != 'admin') {
         <button data-toggle="tooltip"
           data-placement="bottom"
           title="Volver Atrás"
-          class="btn btn-danger mt-2"
+          class="btn btn-danger"
           onclick="cancelarForm()"
           type="button">
           Volver Atras

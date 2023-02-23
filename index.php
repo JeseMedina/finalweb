@@ -20,6 +20,8 @@ if ($_SESSION['tipo'] == 'admin') {
     href="https://cdn-icons-png.flaticon.com/128/3480/3480573.png">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+    rel="stylesheet" />
   <link rel="stylesheet"
     href="css/style.css">
 </head>
@@ -37,6 +39,7 @@ if ($_SESSION['tipo'] == 'admin') {
   <script src="https://code.jquery.com/jquery-3.6.3.js"
     integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 

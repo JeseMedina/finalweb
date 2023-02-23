@@ -26,7 +26,7 @@
   <div class="container-fluid bg-dark">
     <div class="row">
       <div class="col-md">
-        <nav class="navbar navbar-expand-sm"
+        <nav class="navbar navbar-expand-sm d-flex justify-content-between"
           data-bs-theme="dark">
           <a class="navbar-brand"
             href="../index.php">
@@ -45,6 +45,8 @@
             <a class="nav-item nav-link"
               href="../admin/usuarios.php">Usuarios</a>
           </div>
+          <a href="../controller/usuario.php?op=salir"
+            class="fas fa-sign-in-alt text-danger"></a>
         </nav>
       </div>
     </div>

@@ -92,6 +92,8 @@ switch($_GET["op"]) {
         $_SESSION['nombre']=$fetch['nombre'];
         $_SESSION['user']=$fetch['user'];
         $_SESSION['tipo']=$fetch['tipo'];
+        $_SESSION['celular']=$fetch['celular'];
+        $_SESSION['direccion']=$fetch['direccion'];
         echo json_encode($fetch);
     break;
 

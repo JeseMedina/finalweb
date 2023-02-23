@@ -125,7 +125,7 @@ if ($_SESSION['tipo'] != 'admin') {
           <button data-toggle="tooltip"
             data-placement="bottom"
             title="Volver Atrás"
-            class="btn btn-danger mt-2"
+            class="btn btn-danger"
             onclick="cancelarForm()"
             type="button">
             Volver Atras
