@@ -1,6 +1,16 @@
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
+
+let date = new Date();
+let hora = `${date.toLocaleTimeString().split(":", 3)[0]}:${date.toLocaleTimeString().split(":", 3)[1]}`;
+
+let now = new Date();
+let day = ("0" + now.getDate()).slice(-2);
+let month = ("0" + (now.getMonth() + 1)).slice(-2);
+let hoy = now.getFullYear() + "-" + (month) + "-" + (day);
+
+
 menu.onclick = () => {
   menu.classList.toggle('fa-times');
   navbar.classList.toggle('active');
@@ -119,7 +129,40 @@ function eliminarDetalle(indice) {
   evaluar();
 }
 
+function guardaryeditar(e) {
+  e.preventDefault();
+  let formData = new FormData($("#formulario")[0]);
 
+  $.ajax({
+    url: "controller/pedido.php?op=guardar",
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+
+    success: function (datos) {
+      bootbox.alert(datos);
+    }
+
+  });
+  limpiar();
+}
+
+function limpiar() {
+
+  $("#total_venta").val("");
+  $(".filas").remove();
+  $("#total").html("0");
+  $("#hora").val(hora);
+  $('#fecha').val(hoy);
+}
+
+
+$("#hora").val(hora);
+$('#fecha').val(hoy);
+$("#formulario").on("submit", function (e) {
+  guardaryeditar(e);
+});
 listar();
 listarSelect();
 evaluar();

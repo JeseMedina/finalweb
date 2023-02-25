@@ -4,11 +4,23 @@
   <h3 class="sub-heading"> Ordena ahora</h3>
   <h1 class="heading"> Facil y rapido</h1>
 
-  <form action="controller/agregarPedidos.php"
+  <form id="formulario"
+    name="formulario"
     method="POST">
     <div class="inputBox">
       <div class="input">
         <span>Nombre</span>
+        <input type="hidden"
+          name="idusuario"
+          value="<?php echo $_SESSION['idusuario'] ?>">
+        <input type="hidden"
+          name="fecha"
+          id="fecha"
+          value="">
+        <input type="hidden"
+          name="hora"
+          id="hora"
+          value="">
         <input type="text"
           name="txtNombre"
           value="<?php  echo $_SESSION['nombre']  ?>"

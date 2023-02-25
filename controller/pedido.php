@@ -7,12 +7,12 @@ $idpedido = isset($_POST["idpedido"]) ? limpiarCadena($_POST["idpedido"]):"";
 $idusuario = isset($_POST["idusuario"]) ? limpiarCadena($_POST["idusuario"]):"";
 $fecha = isset($_POST["fecha"]) ? limpiarCadena($_POST["fecha"]):"";
 $hora = isset($_POST["hora"]) ? limpiarCadena($_POST["hora"]):"";
-$total = isset($_POST["total"]) ? limpiarCadena($_POST["total"]):"";
+$total_orden = isset($_POST["total_orden"]) ? limpiarCadena($_POST["total_orden"]):"";
 $estado = isset($_POST["estado"]) ? limpiarCadena($_POST["estado"]):"";
 
 switch ($_GET["op"]) {
     case 'guardar':
-        $rspta = $pedido->insertar($idusuario,$fecha,$hora,$total,$_POST["idplato"],$_POST["cantidad"],$_POST["precio"]);
+        $rspta = $pedido->insertar($idusuario,$fecha,$hora,$total_orden,$_POST["idplato"],$_POST["cantidad"],$_POST["precio"]);
         echo $rspta ? "Pedido registrado" : "No se pudo registrar el pedido";
     break;
 
