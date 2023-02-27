@@ -1,5 +1,0 @@
-admin/pedidos/nuevo
-usuario/pedidos
-usuario/pedidos/nuevo
-usuario/favoritos
-usuario/perfil

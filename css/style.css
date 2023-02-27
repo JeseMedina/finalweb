@@ -87,6 +87,7 @@ header .navbar a{
     border-radius: .5rem;
     padding:.5rem 1.5rem;
     color:var(--light-color);
+    text-decoration: none;
 }
 
 header .navbar a.active,
@@ -298,6 +299,11 @@ header .icons #menu-bars{
     width:49%;
 }
 
+.order form .inputBox .input span{
+    min-width: 100%;
+    display: inline-block;
+}
+
 .order form .inputBox .input input,
 .order form .inputBox .input select,
 .order form .inputBox .input textarea{
@@ -399,6 +405,7 @@ header .icons #menu-bars{
 
     header .navbar a{
         display: block;
+        text-decoration: none;
         padding:1.5rem;
         margin:1rem;
         font-size: 2rem;
