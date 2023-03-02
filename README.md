@@ -1,5 +1,5 @@
 # HotFood
-![Imagen del proyecto](https://github.com/JeseMedina/HotFood/blob/main/hotfood.jpg?raw=true)
+![Imagen del proyecto](https://github.com/JeseMedina/HotFood/blob/master/hotfood.jpg?raw=true)
 
 ## Descripción
 
