@@ -29,4 +29,4 @@ Esta aplicación web de restaurante ofrece a los usuarios una forma fácil y con
 
 ## Licencia
 MIT Public License v3.0
-No puede usarse comencialmente.
+No puede usarse comercialmente.
